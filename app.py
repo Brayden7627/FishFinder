@@ -54,7 +54,10 @@ Threats: {', '.join(threats) if threats else 'Unknown'}
             model="gemma3",
             messages=[{"role": "user", "content": prompt}]
         )
-        return response["message"]["content"].strip()
+        import re
+        text = response["message"]["content"].strip()
+        text = re.sub(r'^.*?:\s*', '', text, count=1) if ':' in text.split('\n')[0] else text
+        return text.strip()
     except Exception as e:
         return f"Summary unavailable: {e}"
 
@@ -474,9 +477,9 @@ HTML = """
             <div class="filter-group">
                 <div class="filter-label">DATA FILTERS</div>
                 <button class="filter-btn active">ALL RECORDS</button>
-                <button class="filter-btn">STATUS: CRITICAL (CR)</button>
-                <button class="filter-btn">STATUS: ENDANGERED (EN)</button>
-                <button class="filter-btn">STATUS: VULNERABLE (VU)</button>
+                <div class="filter-btn">STATUS: CRITICAL (CR)</div>
+                <div class="filter-btn">STATUS: ENDANGERED (EN)</div>
+                <div class="filter-btn">STATUS: VULNERABLE (VU)</div>
             </div>
 
             <div class="meta-data-block">

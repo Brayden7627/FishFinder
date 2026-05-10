@@ -29,7 +29,11 @@ Threats: {', '.join(threats) or 'Unknown'}
             model="gemma3",
             messages=[{"role": "user", "content": prompt}]
         )
-        fish["summary"] = response["message"]["content"].strip()
+        import re
+        text = response["message"]["content"].strip()
+        # Remove any intro sentence that ends with a colon
+        text = re.sub(r'^.*?:\s*', '', text, count=1) if ':' in text.split('\n')[0] else text
+        fish["summary"] = text.strip()
         print(f"✓ ({i+1}/{len(data)}) {fish['name']}")
     except Exception as e:
         print(f"✗ {fish['name']}: {e}")
