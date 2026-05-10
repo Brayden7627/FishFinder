@@ -34,9 +34,9 @@ Threats: {', '.join(threats) or 'Unknown'}
         # Remove any intro sentence that ends with a colon
         text = re.sub(r'^.*?:\s*', '', text, count=1) if ':' in text.split('\n')[0] else text
         fish["summary"] = text.strip()
-        print(f"✓ ({i+1}/{len(data)}) {fish['name']}")
+        print(f"Added ({i+1}/{len(data)}) {fish['name']}")
     except Exception as e:
-        print(f"✗ {fish['name']}: {e}")
+        print(f"Failed {fish['name']}: {e}")
         break
 
     with open("cr_fish_detailed.json", "w") as f:

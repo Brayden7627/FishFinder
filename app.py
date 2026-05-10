@@ -1,16 +1,18 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, jsonify
 from dotenv import load_dotenv
 import requests
 import json
 import os
 import ollama
+import re
+import time
 from elevenlabs.client import ElevenLabs
 
 load_dotenv()
 
 app = Flask(__name__)
 
-# config
+#config
 ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
 el_client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
 
@@ -54,7 +56,6 @@ Threats: {', '.join(threats) if threats else 'Unknown'}
             model="gemma3",
             messages=[{"role": "user", "content": prompt}]
         )
-        import re
         text = response["message"]["content"].strip()
         text = re.sub(r'^.*?:\s*', '', text, count=1) if ':' in text.split('\n')[0] else text
         return text.strip()
@@ -68,7 +69,7 @@ def load_fish_with_summaries():
     changed = False
 
     for fish in fish_list:
-        if "summary" not in fish: 
+        if "summary" not in fish:
             fish["summary"] = get_summary(fish)
             changed = True
 
@@ -88,7 +89,6 @@ HTML = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ocean Intelligence Unit | Terminal</title>
     <style>
-        /*Typography & Color Palette*/
         :root {
             --bg-base: #0a0c10;
             --bg-surface: #11141a;
@@ -100,17 +100,11 @@ HTML = """
             --text-tertiary: #546175;
             --accent-crit: #d74d4d;
             --accent-link: #6294d1;
-            
             --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
             --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
         }
 
-        /*Base Reset & Grain Texture*/
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: var(--font-sans);
@@ -134,7 +128,6 @@ HTML = """
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /*Top Status Bar*/
         .system-bar {
             background-color: var(--bg-base);
             border-bottom: 1px solid var(--border-dim);
@@ -148,12 +141,8 @@ HTML = """
             letter-spacing: 0.05em;
         }
 
-        .system-bar span strong {
-            color: var(--text-secondary);
-            font-weight: normal;
-        }
+        .system-bar span strong { color: var(--text-secondary); font-weight: normal; }
 
-        /*Main Application Layout*/
         .app-container {
             display: grid;
             grid-template-columns: 260px 1fr;
@@ -163,7 +152,6 @@ HTML = """
             width: 100%;
         }
 
-        /*Sidebar Sidebar*/
         aside.sidebar {
             border-right: 1px solid var(--border-dim);
             padding: 40px 32px 40px 24px;
@@ -171,9 +159,7 @@ HTML = """
             flex-direction: column;
         }
 
-        .agency-header {
-            margin-bottom: 48px;
-        }
+        .agency-header { margin-bottom: 48px; }
 
         .agency-header h1 {
             font-size: 1.25rem;
@@ -213,14 +199,7 @@ HTML = """
             padding: 8px 12px;
             font-family: var(--font-sans);
             font-size: 0.85rem;
-            cursor: pointer;
             border-left: 2px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn:hover {
-            color: var(--text-primary);
-            background-color: var(--bg-surface);
         }
 
         .filter-btn.active {
@@ -245,7 +224,43 @@ HTML = """
             margin-bottom: 8px;
         }
 
-        /*Main Content / Case File Feed*/
+        /*Rotation status indicator*/
+        .rotation-status {
+            margin-top: 16px;
+            border-top: 1px solid var(--border-dim);
+            padding-top: 16px;
+        }
+
+        .rotation-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .rotation-bar-track {
+            width: 100%;
+            height: 2px;
+            background: var(--border-dim);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rotation-bar-fill {
+            height: 100%;
+            background: var(--accent-crit);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .rotation-info {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-tertiary);
+            margin-top: 6px;
+        }
+
         main.feed {
             padding: 40px;
             overflow-y: auto;
@@ -261,11 +276,7 @@ HTML = """
             border-bottom: 1px solid var(--border-dim);
         }
 
-        .feed-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-        }
+        .feed-title { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.02em; }
 
         .result-count {
             font-family: var(--font-mono);
@@ -279,14 +290,14 @@ HTML = """
             gap: 24px;
         }
 
-        /*Dossier Card Styling*/
+        /*Card with animation states*/
         .case-file {
             background-color: var(--bg-surface);
             border: 1px solid var(--border-dim);
             padding: 24px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, opacity 0.5s ease;
         }
 
         .case-file:hover {
@@ -295,7 +306,27 @@ HTML = """
             box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
 
-        /*Case File Header*/
+        /*Fade out animation*/
+        .case-file.exiting {
+            opacity: 0;
+            transform: translateY(10px) scale(0.98);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        /*Fade in animation*/
+        .case-file.entering {
+            opacity: 0;
+            transform: translateY(-10px) scale(0.98);
+            transition: none;
+        }
+
+        .case-file.entered {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
         .case-meta-strip {
             display: flex;
             justify-content: space-between;
@@ -308,9 +339,7 @@ HTML = """
             margin-bottom: 16px;
         }
 
-        .case-id {
-            letter-spacing: 0.05em;
-        }
+        .case-id { letter-spacing: 0.05em; }
 
         .status-badge {
             background-color: rgba(215, 77, 77, 0.1);
@@ -318,11 +347,11 @@ HTML = """
             padding: 2px 6px;
             border: 1px solid rgba(215, 77, 77, 0.3);
             text-transform: uppercase;
+            font-size: 0.65rem;
         }
 
-        /*Editorial Typography*/
         .species-name {
-            font-family: "Georgia", serif; /*Adds an editorial investigative feel*/
+            font-family: "Georgia", serif;
             font-size: 1.6rem;
             font-weight: normal;
             color: #ffffff;
@@ -339,11 +368,8 @@ HTML = """
             gap: 12px;
         }
 
-        .data-confidence span {
-            color: var(--text-secondary);
-        }
+        .data-confidence span { color: var(--text-secondary); }
 
-        /*Intelligence Summary*/
         .report-body {
             font-size: 0.85rem;
             line-height: 1.6;
@@ -363,7 +389,6 @@ HTML = """
             border: 1px solid var(--border-dim);
         }
 
-        /*Functional Actions*/
         .action-strip {
             display: flex;
             justify-content: space-between;
@@ -392,14 +417,8 @@ HTML = """
             color: var(--bg-base);
         }
 
-        .btn-playback:active:not(:disabled) {
-            transform: translateY(1px);
-        }
-
-        .btn-playback:disabled {
-            opacity: 0.4;
-            cursor: wait;
-        }
+        .btn-playback:active:not(:disabled) { transform: translateY(1px); }
+        .btn-playback:disabled { opacity: 0.4; cursor: wait; }
 
         .db-link {
             font-family: var(--font-mono);
@@ -409,56 +428,17 @@ HTML = """
             text-transform: uppercase;
         }
 
-        .db-link:hover {
-            text-decoration: underline;
-        }
-        
-        /*Responsive*/
+        .db-link:hover { text-decoration: underline; }
+
         @media (max-width: 900px) {
-            .app-container {
-                grid-template-columns: 1fr;
-            }
-            aside.sidebar {
-                border-right: none;
-                border-bottom: 1px solid var(--border-dim);
-                padding: 24px;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-            }
+            .app-container { grid-template-columns: 1fr; }
+            aside.sidebar { border-right: none; border-bottom: 1px solid var(--border-dim); padding: 24px; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
-    <script>
-    function playAudio(index, btn) {
-        const audio = document.getElementById('audio-' + index);
-        const originalText = '[ PLAY BRIEFING ]';
-        
-        if (!audio.src || audio.paused) {
-            btn.innerHTML = '[ BUFFERING... ]';
-            btn.disabled = true;
-            audio.src = '/speak/' + index;
-            audio.load();
-            audio.play().then(() => {
-                btn.innerHTML = '[ ■ STOP PLAYBACK ]';
-                btn.disabled = false;
-            }).catch(e => {
-                btn.innerHTML = '[ ERR: STREAM FAILED ]';
-                btn.disabled = false;
-            });
-            audio.onended = () => {
-                btn.innerHTML = originalText;
-            };
-        } else {
-            audio.pause();
-            audio.currentTime = 0;
-            btn.innerHTML = originalText;
-        }
-    }
-    </script>
 </head>
 <body>
 
-    <!-- System Status Bar -->
     <div class="system-bar">
         <span>UNIT: <strong>OCEAN_INTEL_DB</strong></span>
         <span>SYS_STAT: <strong>SECURE / ONLINE</strong></span>
@@ -466,8 +446,7 @@ HTML = """
     </div>
 
     <div class="app-container">
-        
-        <!-- Left Sidebar / Filters -->
+
         <aside class="sidebar">
             <div class="agency-header">
                 <h1>Endangered Species Tracking System</h1>
@@ -476,7 +455,7 @@ HTML = """
 
             <div class="filter-group">
                 <div class="filter-label">DATA FILTERS</div>
-                <button class="filter-btn active">ALL RECORDS</button>
+                <div class="filter-btn active">ALL RECORDS</div>
                 <div class="filter-btn">STATUS: CRITICAL (CR)</div>
                 <div class="filter-btn">STATUS: ENDANGERED (EN)</div>
                 <div class="filter-btn">STATUS: VULNERABLE (VU)</div>
@@ -495,70 +474,228 @@ HTML = """
                     <span>COVERAGE</span>
                     <span>GLOBAL</span>
                 </div>
+                <div class="meta-row">
+                    <span>TOTAL RECORDS</span>
+                    <span id="total-count">—</span>
+                </div>
+                <div class="meta-row">
+                    <span>DISPLAYING</span>
+                    <span id="display-count">12</span>
+                </div>
+            </div>
+
+            <div class="rotation-status">
+                <div class="rotation-label">FEED ROTATION</div>
+                <div class="rotation-bar-track">
+                    <div class="rotation-bar-fill" id="rotation-bar"></div>
+                </div>
+                <div class="rotation-info" id="rotation-info">NEXT ROTATION IN —</div>
             </div>
         </aside>
 
-        <!-- Main Feed -->
         <main class="feed">
             <div class="feed-header">
                 <h2 class="feed-title">Active Case Files</h2>
-                <span class="result-count">DISPLAYING {{ fish|length }} RECORDS</span>
+                <span class="result-count" id="feed-count">LOADING RECORDS...</span>
             </div>
 
-            <div class="grid">
-                {% for f in fish %}
-                <div class="case-file">
-                    
-                    <div class="case-meta-strip">
-                        <span class="case-id">FILE // {{ "%05d" | format(loop.index * 73) }}-{{ "%02d" | format(loop.index) }}</span>
-                        <span class="status-badge">CRITICAL</span>
-                    </div>
-
-                    <h3 class="species-name">{{ f.name }}</h3>
-                    
-                    <div class="data-confidence">
-                        <div>THREAT LEVEL: <span>SEVERE</span></div>
-                        <div>CONFIDENCE: <span>HIGH (94%)</span></div>
-                    </div>
-
-                    <div class="report-body">
-                        {{ f.summary }}
-                        <div class="trend-indicator">POPULATION TREND: {{ f.trend | upper }}</div>
-                    </div>
-
-                    <div class="action-strip">
-                        <button class="btn-playback" onclick="playAudio({{ loop.index0 }}, this)">
-                            [ PLAY BRIEFING ]
-                        </button>
-                        <a href="{{ f.url }}" class="db-link" target="_blank">EXT_DB_REF ↗</a>
-                        <audio id="audio-{{ loop.index0 }}"></audio>
-                    </div>
-
-                </div>
-                {% endfor %}
+            <div class="grid" id="fish-grid">
+                <!-- Cards injected by JS -->
             </div>
         </main>
 
     </div>
 
+    <script>
+        const DISPLAY_COUNT = 12;
+        const ROTATION_INTERVAL = 5000; //5 seconds per swap
+        const CARDS_PER_ROTATION = 1;   //swap 1 card at a time
+
+        let allFish = [];
+        let displayedIndices = [];
+        let rotationTimer = null;
+        let progressTimer = null;
+        let progressStart = null;
+
+        //Fetch all fish from the API
+        async function fetchFish() {
+            const res = await fetch('/api/fish');
+            allFish = await res.json();
+            document.getElementById('total-count').textContent = allFish.length;
+            document.getElementById('feed-count').textContent = `DISPLAYING ${Math.min(DISPLAY_COUNT, allFish.length)} OF ${allFish.length} RECORDS`;
+
+            //Pick initial 12 random fish
+            displayedIndices = shuffle([...Array(allFish.length).keys()]).slice(0, DISPLAY_COUNT);
+            renderAllCards();
+            startRotation();
+        }
+
+        function shuffle(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function buildCard(fish, index, globalIndex) {
+            const fileNum = String(globalIndex * 73).padStart(5, '0');
+            const fileSeq = String(index + 1).padStart(2, '0');
+            return `
+                <div class="case-file" id="card-${index}">
+                    <div class="case-meta-strip">
+                        <span class="case-id">FILE //${fileNum}-${fileSeq}</span>
+                        <span class="status-badge">CRITICAL</span>
+                    </div>
+                    <h3 class="species-name">${fish.name}</h3>
+                    <div class="data-confidence">
+                        <div>THREAT LEVEL: <span>SEVERE</span></div>
+                        <div>CONFIDENCE: <span>HIGH (94%)</span></div>
+                    </div>
+                    <div class="report-body">
+                        ${fish.summary || 'Loading intelligence summary...'}
+                        <div class="trend-indicator">POPULATION TREND: ${(fish.trend || 'UNKNOWN').toUpperCase()}</div>
+                    </div>
+                    <div class="action-strip">
+                        <button class="btn-playback" onclick="playAudio(${globalIndex}, this)">
+                            [ PLAY BRIEFING ]
+                        </button>
+                        <a href="${fish.url}" class="db-link" target="_blank">EXT_DB_REF ↗</a>
+                        <audio id="audio-${globalIndex}"></audio>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAllCards() {
+            const grid = document.getElementById('fish-grid');
+            grid.innerHTML = '';
+            displayedIndices.forEach((globalIdx, slotIdx) => {
+                const fish = allFish[globalIdx];
+                grid.insertAdjacentHTML('beforeend', buildCard(fish, slotIdx, globalIdx));
+            });
+            //Trigger enter animation
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.case-file').forEach(card => {
+                    card.classList.add('entering');
+                    requestAnimationFrame(() => card.classList.add('entered'));
+                });
+            });
+        }
+
+        function rotateCard() {
+            //Find indices NOT currently displayed
+            const hiddenIndices = [...Array(allFish.length).keys()].filter(i => !displayedIndices.includes(i));
+            if (hiddenIndices.length === 0) return; //nothing to swap
+
+            //Pick a random slot to replace
+            const slotToReplace = Math.floor(Math.random() * displayedIndices.length);
+            const cardEl = document.getElementById(`card-${slotToReplace}`);
+            if (!cardEl) return;
+
+            //Pick a random hidden fish to bring in
+            const newGlobalIdx = hiddenIndices[Math.floor(Math.random() * hiddenIndices.length)];
+
+            //Fade out
+            cardEl.classList.add('exiting');
+
+            setTimeout(() => {
+                //Swap index
+                displayedIndices[slotToReplace] = newGlobalIdx;
+
+                //Replace card HTML
+                const fish = allFish[newGlobalIdx];
+                const newCardHTML = buildCard(fish, slotToReplace, newGlobalIdx);
+                cardEl.outerHTML = newCardHTML;
+
+                //Trigger enter animation on new card
+                const newCard = document.getElementById(`card-${slotToReplace}`);
+                if (newCard) {
+                    newCard.classList.add('entering');
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            newCard.classList.remove('entering');
+                            newCard.classList.add('entered');
+                        });
+                    });
+                }
+            }, 550); //slightly after fade out completes
+        }
+
+        function startRotation() {
+            clearInterval(rotationTimer);
+            rotationTimer = setInterval(rotateCard, ROTATION_INTERVAL);
+            startProgressBar();
+        }
+
+        function startProgressBar() {
+            clearInterval(progressTimer);
+            progressStart = Date.now();
+            const bar = document.getElementById('rotation-bar');
+            const info = document.getElementById('rotation-info');
+
+            progressTimer = setInterval(() => {
+                const elapsed = Date.now() - progressStart;
+                const pct = (elapsed % ROTATION_INTERVAL) / ROTATION_INTERVAL * 100;
+                const remaining = Math.ceil((ROTATION_INTERVAL - (elapsed % ROTATION_INTERVAL)) / 1000);
+                bar.style.width = pct + '%';
+                info.textContent = `NEXT ROTATION IN ${remaining}S`;
+            }, 100);
+        }
+
+        function playAudio(globalIndex, btn) {
+            const audio = document.getElementById('audio-' + globalIndex);
+            if (!audio) return;
+            const originalText = '[ PLAY BRIEFING ]';
+
+            if (!audio.src || audio.paused) {
+                btn.innerHTML = '[ BUFFERING... ]';
+                btn.disabled = true;
+                audio.src = '/speak/' + globalIndex;
+                audio.load();
+                audio.play().then(() => {
+                    btn.innerHTML = '[ ■ STOP PLAYBACK ]';
+                    btn.disabled = false;
+                }).catch(() => {
+                    btn.innerHTML = '[ ERR: STREAM FAILED ]';
+                    btn.disabled = false;
+                });
+                audio.onended = () => { btn.innerHTML = originalText; };
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        fetchFish();
+    </script>
 </body>
 </html>
 """
 
 
-#route
+#route - main page
 @app.route("/")
 def home():
-    fish = load_fish_with_summaries()
-    return render_template_string(HTML, fish=fish)
+    load_fish_with_summaries()  #ensure summaries are generated
+    return render_template_string(HTML)
+
+
+#NEW: api endpoint that returns all fish as json for the frontend
+@app.route("/api/fish")
+def api_fish():
+    fish_list = load_fish_with_summaries()
+    return jsonify(fish_list)
+
 
 @app.route("/speak/<int:fish_index>")
 def speak(fish_index):
     fish_list = load_fish_data()
-    
+
     if fish_index >= len(fish_list):
         return "Not found", 404
-    
+
     fish = fish_list[fish_index]
     summary = fish.get("summary", "No summary available.")
     text = f"{fish['name']}. {summary}"
