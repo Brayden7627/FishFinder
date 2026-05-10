@@ -1,0 +1,1435 @@
+[
+    {
+        "name": "Hubbsina turneri",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)"
+                },
+                "code": "5_5"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Freshwater Marshes/Pools (under 8ha)"
+                },
+                "code": "5_7"
+            },
+            {
+                "majorImportance": "No",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Negligible declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (domestic use)"
+                },
+                "code": "7_2_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Negligible declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Recreational activities"
+                },
+                "code": "6_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Negligible declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Tourism & recreation areas"
+                },
+                "code": "1_3"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Housing & urban areas"
+                },
+                "code": "1_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Causing/Could cause fluctuations",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Small-holder grazing, ranching or farming"
+                },
+                "code": "2_3_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Soil erosion, sedimentation"
+                },
+                "code": "9_3_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_3_4"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_1_3"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Problematic native species/diseases"
+                },
+                "code": "8_2"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/132523146/497499",
+        "score": 3
+    },
+    {
+        "name": "Ameca splendens",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Freshwater Springs and Oases"
+                },
+                "code": "5_9"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Rapid Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Large dams"
+                },
+                "code": "7_2_10"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Negligible declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (unknown use)"
+                },
+                "code": "7_2_4"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Negligible declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Soil erosion, sedimentation"
+                },
+                "code": "9_3_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Agro-industry grazing, ranching or farming"
+                },
+                "code": "2_3_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Subsistence/artisinal aquaculture"
+                },
+                "code": "2_4_1"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Negligible declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Recreational activities"
+                },
+                "code": "6_1"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (agricultural use)"
+                },
+                "code": "7_2_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "High Impact: 8",
+                "severity": "Rapid Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Small dams"
+                },
+                "code": "7_2_9"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": "Pseudoxiphophorus bimaculatus",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": "Xiphophorus hellerii",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": "Poecilia mexicana",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Sewage"
+                },
+                "code": "9_1_1"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/1117/500918",
+        "score": 3
+    },
+    {
+        "name": "Neochanna burrowsius",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Shrub Dominated Wetlands"
+                },
+                "code": "5_3"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Artificial/Aquatic - Irrigated Land (includes irrigation channels)"
+                },
+                "code": "15_7"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks"
+                },
+                "code": "5_2"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Artificial/Aquatic - Canals and Drainage Channels, Ditches"
+                },
+                "code": "15_9"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Freshwater Springs and Oases"
+                },
+                "code": "5_9"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Small-holder grazing, ranching or farming"
+                },
+                "code": "2_3_2"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Other ecosystem modifications"
+                },
+                "code": "7_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of ground water (agricultural use)"
+                },
+                "code": "7_2_7"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (agricultural use)"
+                },
+                "code": "7_2_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Agro-industry grazing, ranching or farming"
+                },
+                "code": "2_3_3"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": "Unspecified SALMONIFORMES",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/14505/545821",
+        "score": 3
+    },
+    {
+        "name": "Allotoca diazi",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)"
+                },
+                "code": "5_5"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            },
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Freshwater Springs and Oases"
+                },
+                "code": "5_9"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Minority (<50%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Sewage"
+                },
+                "code": "9_1_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 7",
+                "severity": "Rapid Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Run-off"
+                },
+                "code": "9_1_2"
+            },
+            {
+                "scope": "Minority (<50%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": "Eichhornia crassipes",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Soil erosion, sedimentation"
+                },
+                "code": "9_3_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (agricultural use)"
+                },
+                "code": "7_2_3"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Small-holder farming"
+                },
+                "code": "2_1_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Nutrient loads"
+                },
+                "code": "9_3_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (domestic use)"
+                },
+                "code": "7_2_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Small dams"
+                },
+                "code": "7_2_9"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/169372/1274613",
+        "score": 3
+    },
+    {
+        "name": "Poblana alchichica",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Freshwater Lakes (over 8ha)"
+                },
+                "code": "5_5"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Unknown",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Tourism & recreation areas"
+                },
+                "code": "1_3"
+            },
+            {
+                "scope": "Minority (<50%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 5",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of ground water (domestic use)"
+                },
+                "code": "7_2_5"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/17762/1494264",
+        "score": 3
+    },
+    {
+        "name": "Poblana ferdebueni",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent Freshwater Lakes (over 8ha)"
+                },
+                "code": "5_6"
+            },
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks"
+                },
+                "code": "5_2"
+            },
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_2_3"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Nutrient loads"
+                },
+                "code": "9_3_1"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Soil erosion, sedimentation"
+                },
+                "code": "9_3_2"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (agricultural use)"
+                },
+                "code": "7_2_3"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Unspecified species"
+                },
+                "code": "8_1_1"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/17763/1494296",
+        "score": 3
+    },
+    {
+        "name": "Poblana letholepis",
+        "category": "CR",
+        "trend": "Unknown",
+        "habitat": [
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent Freshwater Lakes (over 8ha)"
+                },
+                "code": "5_6"
+            },
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            },
+            {
+                "majorImportance": null,
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks"
+                },
+                "code": "5_2"
+            }
+        ],
+        "threats": [
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Soil erosion, sedimentation"
+                },
+                "code": "9_3_2"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (agricultural use)"
+                },
+                "code": "7_2_3"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Unspecified species"
+                },
+                "code": "8_1_1"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/17764/1494351",
+        "score": 3
+    },
+    {
+        "name": "Poblana squamata",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent Freshwater Lakes (over 8ha)"
+                },
+                "code": "5_6"
+            },
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Seasonal/Intermittent/Irregular Rivers/Streams/Creeks"
+                },
+                "code": "5_2"
+            },
+            {
+                "majorImportance": null,
+                "season": "Seasonal Occurrence Unknown",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [
+            {
+                "scope": null,
+                "timing": "Unknown",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_3_4"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Dams (size unknown)"
+                },
+                "code": "7_2_11"
+            },
+            {
+                "scope": null,
+                "timing": "Unknown",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_2_3"
+            },
+            {
+                "scope": null,
+                "timing": "Unknown",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_1_3"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/17765/1494618",
+        "score": 3
+    },
+    {
+        "name": "Clarias batu",
+        "category": "CR",
+        "trend": "Decreasing",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Unknown",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of ground water (agricultural use)"
+                },
+                "code": "7_2_7"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of ground water (domestic use)"
+                },
+                "code": "7_2_5"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (agricultural use)"
+                },
+                "code": "7_2_3"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Abstraction of surface water (domestic use)"
+                },
+                "code": "7_2_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Tourism & recreation areas"
+                },
+                "code": "1_3"
+            },
+            {
+                "scope": "Minority (<50%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Scale Unknown/Unrecorded"
+                },
+                "code": "2_1_4"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": "Barbonymus schwanefeldii",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            },
+            {
+                "scope": null,
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Low Impact: 3",
+                "severity": null,
+                "ancestry": null,
+                "virus": null,
+                "ias": "Oreochromis niloticus",
+                "text": null,
+                "description": {
+                    "en": "Named species"
+                },
+                "code": "8_1_2"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/180855/1670425",
+        "score": 3
+    },
+    {
+        "name": "Oreoglanis lepturus",
+        "category": "CR",
+        "trend": "Unknown",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Sewage"
+                },
+                "code": "9_1_1"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Garbage & solid waste"
+                },
+                "code": "9_4"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Seepage from mining"
+                },
+                "code": "9_2_2"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Small dams"
+                },
+                "code": "7_2_9"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Work & other activities"
+                },
+                "code": "6_3"
+            },
+            {
+                "scope": "Majority (50-90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Medium Impact: 6",
+                "severity": "Slow, Significant Declines",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Run-off"
+                },
+                "code": "9_1_2"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/180856/1670546",
+        "score": 3
+    },
+    {
+        "name": "Betta fusca",
+        "category": "CR",
+        "trend": "Unknown",
+        "habitat": [
+            {
+                "majorImportance": null,
+                "season": null,
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [],
+        "url": "https://www.iucnredlist.org/species/180971/1683752",
+        "score": 3
+    },
+    {
+        "name": "Hyalobagrus ornatus",
+        "category": "CR",
+        "trend": "Unknown",
+        "habitat": [
+            {
+                "majorImportance": "Yes",
+                "season": "Resident",
+                "suitability": "Suitable",
+                "description": {
+                    "en": "Wetlands (inland) - Permanent Rivers/Streams/Creeks (includes waterfalls)"
+                },
+                "code": "5_1"
+            }
+        ],
+        "threats": [
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Agro-industry farming"
+                },
+                "code": "2_1_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Housing & urban areas"
+                },
+                "code": "1_1"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Herbicides and pesticides"
+                },
+                "code": "9_3_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Nutrient loads"
+                },
+                "code": "9_3_1"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Type Unknown/Unrecorded"
+                },
+                "code": "9_2_3"
+            },
+            {
+                "scope": "Whole (>90%)",
+                "timing": "Ongoing",
+                "internationalTrade": null,
+                "score": "Unknown",
+                "severity": "Unknown",
+                "ancestry": null,
+                "virus": null,
+                "ias": null,
+                "text": null,
+                "description": {
+                    "en": "Unintentional effects: (subsistence/small scale) [harvest]"
+                },
+                "code": "5_3_3"
+            }
+        ],
+        "url": "https://www.iucnredlist.org/species/181103/1698932",
+        "score": 3
+    }
+]
