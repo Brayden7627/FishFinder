@@ -1,9 +1,9 @@
 from flask import Flask, render_template_string
-from google import genai
 from dotenv import load_dotenv
 import requests
 import json
 import os
+import ollama
 
 load_dotenv()
 
@@ -13,9 +13,6 @@ app = Flask(__name__)
 # CONFIG
 # -------------------------
 IUCN_API_KEY = os.getenv("IUCN_API_KEY")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
-client = genai.Client(api_key=GEMINI_API_KEY)
 
 BASE_URL = "https://api.iucnredlist.org/api/v4"
 
@@ -33,10 +30,7 @@ def load_fish_data():
         return json.load(f)
 
 
-# -------------------------
-# GEMINI SUMMARY
-# -------------------------
-def get_gemini_summary(fish: dict) -> str:
+def get_summary(fish: dict) -> str:
     threats = [t["description"]["en"] for t in fish.get("threats", []) if t.get("description")]
     habitats = [h["description"]["en"] for h in fish.get("habitat", []) if h.get("description")]
 
@@ -55,11 +49,11 @@ Threats: {', '.join(threats) if threats else 'Unknown'}
 """
 
     try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=prompt
+        response = ollama.chat(
+            model="gemma3",
+            messages=[{"role": "user", "content": prompt}]
         )
-        return response.text.strip()
+        return response["message"]["content"].strip()
     except Exception as e:
         return f"Summary unavailable: {e}"
 
@@ -72,8 +66,8 @@ def load_fish_with_summaries():
     changed = False
 
     for fish in fish_list:
-        if "summary" not in fish:  # only call Gemini if no summary yet
-            fish["summary"] = get_gemini_summary(fish)
+        if "summary" not in fish: 
+            fish["summary"] = get_summary(fish)
             changed = True
 
     if changed:  # only re-save if something was added

@@ -1,9 +1,6 @@
-from google import genai
-from dotenv import load_dotenv
-import json, os, time
-
-load_dotenv()
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+import ollama
+import json
+import time
 
 with open("cr_fish_detailed.json", "r") as f:
     data = json.load(f)
@@ -28,20 +25,17 @@ Threats: {', '.join(threats) or 'Unknown'}
 """
 
     try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=prompt
+        response = ollama.chat(
+            model="gemma3",
+            messages=[{"role": "user", "content": prompt}]
         )
-        fish["summary"] = response.text.strip()
+        fish["summary"] = response["message"]["content"].strip()
         print(f"✓ ({i+1}/{len(data)}) {fish['name']}")
     except Exception as e:
         print(f"✗ {fish['name']}: {e}")
-        break  # stop if quota hit, don't waste more
+        break
 
-    # Save after every fish so progress isn't lost
     with open("cr_fish_detailed.json", "w") as f:
         json.dump(data, f, indent=4)
-
-    time.sleep(6)  # wait 6 seconds between each call
 
 print("Done!")
